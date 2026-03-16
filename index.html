@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worth Benefits — Smart, Affordable Employee Benefits</title>
+    <meta name="description" content="Worth Benefits delivers smart, affordable employee benefits powered by ON Health. $0 deductibles, no copays, 24/7 access.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ── Reset & Base ── */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #111111;
+            color: #e0e0e0;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Color Tokens ── */
+        :root {
+            --gold: #D4A843;
+            --gold-light: #E8C972;
+            --gold-dark: #B8922F;
+            --bg: #111111;
+            --bg-card: #1a1a1a;
+            --bg-card-hover: #222222;
+            --text: #e0e0e0;
+            --text-muted: #999999;
+            --border: #2a2a2a;
+        }
+
+        /* ── Typography ── */
+        h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; color: var(--gold); font-weight: 700; }
+        h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1; }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; margin-bottom: 1.5rem; }
+        h3 { font-size: 1.35rem; margin-bottom: 0.75rem; }
+        h4 { font-size: 1.1rem; color: var(--gold-light); margin-bottom: 0.5rem; }
+        p { margin-bottom: 1rem; }
+        a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+        a:hover { color: var(--gold-light); }
+
+        /* ── Layout ── */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        section { padding: 6rem 0; }
+
+        /* ── Navigation ── */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(17,17,17,0.92); backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            transition: background 0.3s;
+        }
+        nav .container {
+            display: flex; align-items: center; justify-content: space-between;
+            height: 72px;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem; font-weight: 700; color: var(--gold);
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .logo svg { height: 32px; width: auto; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+        .nav-links a {
+            color: var(--text-muted); font-size: 0.9rem; font-weight: 500;
+            letter-spacing: 0.02em; transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-cta {
+            background: var(--gold); color: #111 !important; padding: 0.6rem 1.5rem;
+            border-radius: 6px; font-weight: 600; font-size: 0.85rem;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--gold); cursor: pointer; }
+
+        /* ── Hero ── */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center;
+            padding-top: 72px;
+            background: radial-gradient(ellipse at 50% 30%, rgba(212,168,67,0.08) 0%, transparent 70%);
+        }
+        .hero-content { max-width: 800px; }
+        .hero .w-icon {
+            display: block; margin-bottom: 2rem;
+            font-family: 'Playfair Display', serif; font-size: 5rem;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p {
+            font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin-bottom: 2.5rem;
+        }
+        .hero-tagline {
+            font-family: 'Playfair Display', serif; font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: var(--gold-light); margin-bottom: 1rem; font-style: italic;
+        }
+        .btn {
+            display: inline-block; padding: 1rem 2.5rem; border-radius: 6px;
+            font-weight: 600; font-size: 1rem; transition: all 0.25s; cursor: pointer; border: none;
+        }
+        .btn-primary { background: var(--gold); color: #111; }
+        .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(212,168,67,0.25); }
+        .btn-outline {
+            background: transparent; color: var(--gold); border: 2px solid var(--gold);
+            margin-left: 1rem;
+        }
+        .btn-outline:hover { background: var(--gold); color: #111; }
+
+        /* ── About ── */
+        .about-grid { display: grid; grid-template-columns: auto 1fr; gap: 3rem; align-items: start; }
+        .about-w {
+            font-family: 'Playfair Display', serif; font-size: 8rem; line-height: 1;
+            background: linear-gradient(180deg, var(--gold-light), var(--gold-dark));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .about-text .lead { font-size: 1.15rem; color: var(--gold-light); margin-bottom: 1.25rem; }
+        .about-partner {
+            display: flex; align-items: center; gap: 2rem;
+            margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border);
+        }
+        .about-partner .tagline {
+            font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--gold-light);
+        }
+        .on-health-badge {
+            font-family: 'Inter', sans-serif; font-weight: 700; letter-spacing: 0.3em;
+            color: var(--text-muted); font-size: 0.9rem; white-space: nowrap;
+        }
+
+        /* ── ON Health Section ── */
+        .onhealth { background: linear-gradient(180deg, #0d0d0d, var(--bg)); }
+        .onhealth-intro { max-width: 700px; margin-bottom: 3rem; }
+        .highlight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin: 3rem 0; }
+        .highlight-item { text-align: center; padding: 1.5rem; }
+        .highlight-icon {
+            width: 56px; height: 56px; margin: 0 auto 1rem;
+            display: flex; align-items: center; justify-content: center;
+            border: 2px solid var(--gold); border-radius: 12px;
+            color: var(--gold); font-size: 1.5rem;
+        }
+        .highlight-item h4 { font-size: 0.95rem; color: var(--gold); margin-bottom: 0.25rem; }
+        .highlight-item p { font-size: 0.85rem; color: var(--text-muted); margin: 0; }
+
+        /* ── Benefits Cards ── */
+        .benefits-cards {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem; margin-top: 3rem;
+        }
+        .benefit-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 2rem; transition: all 0.3s;
+            position: relative; overflow: hidden;
+        }
+        .benefit-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0;
+            height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            transform: scaleX(0); transition: transform 0.3s; transform-origin: left;
+        }
+        .benefit-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+        .benefit-card:hover::before { transform: scaleX(1); }
+        .card-icon {
+            width: 48px; height: 48px; border: 2px solid var(--gold); border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 1.25rem; color: var(--gold); font-size: 1.3rem;
+        }
+        .card-price {
+            font-family: 'Playfair Display', serif; font-size: 2rem;
+            color: var(--gold); margin-top: 1rem;
+        }
+        .card-price small { font-size: 0.8rem; color: var(--text-muted); display: block; font-family: 'Inter', sans-serif; }
+
+        /* ── Two Column Feature ── */
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+        .feature-list { list-style: none; }
+        .feature-list li {
+            padding: 0.6rem 0; padding-left: 1.5rem; position: relative;
+            color: var(--text);
+        }
+        .feature-list li::before {
+            content: '+'; position: absolute; left: 0; color: var(--gold); font-weight: 700;
+        }
+
+        /* ── ACA Section ── */
+        .aca { background: linear-gradient(180deg, var(--bg), #0d0d0d); }
+        .aca-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem; }
+        .aca-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 2.5rem;
+        }
+        .aca-card h3 { font-size: 1.5rem; }
+        .aca-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; }
+        .aca-table th, .aca-table td {
+            text-align: left; padding: 0.75rem 0; border-bottom: 1px solid var(--border);
+            font-size: 0.9rem;
+        }
+        .aca-table th { color: var(--gold); font-weight: 600; }
+        .aca-table td:last-child, .aca-table th:last-child { text-align: right; }
+
+        /* ── App Section ── */
+        .app-section { background: radial-gradient(ellipse at 70% 50%, rgba(212,168,67,0.05) 0%, transparent 60%); }
+        .app-features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-top: 2rem; }
+        .app-feature {
+            display: flex; gap: 0.75rem; padding: 1rem; border-radius: 8px;
+            transition: background 0.2s;
+        }
+        .app-feature:hover { background: var(--bg-card); }
+        .app-feature-icon { color: var(--gold); font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+        .app-feature p { margin: 0; font-size: 0.95rem; }
+
+        /* ── Planning Section ── */
+        .planning-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .planning-card {
+            padding: 2rem; border-left: 3px solid var(--gold); background: var(--bg-card);
+            border-radius: 0 8px 8px 0;
+        }
+        .planning-card p { margin: 0; font-size: 0.95rem; color: var(--text-muted); }
+
+        /* ── Markets ── */
+        .markets { text-align: center; background: var(--bg-card); }
+        .market-tags { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+        .market-tag {
+            padding: 0.75rem 2rem; border: 1px solid var(--gold); border-radius: 50px;
+            color: var(--gold); font-weight: 500; font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .market-tag:hover { background: var(--gold); color: #111; }
+
+        /* ── Contact / CTA ── */
+        .cta-section {
+            text-align: center; padding: 8rem 0;
+            background: radial-gradient(ellipse at 50% 50%, rgba(212,168,67,0.1) 0%, transparent 60%);
+        }
+        .cta-section h2 { margin-bottom: 1rem; }
+        .cta-section p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2.5rem; }
+        .contact-info {
+            display: flex; justify-content: center; gap: 3rem; margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        .contact-item {
+            display: flex; align-items: center; gap: 0.5rem;
+            color: var(--text-muted); font-size: 0.95rem;
+        }
+        .contact-item svg { color: var(--gold); }
+
+        /* ── Footer ── */
+        footer {
+            padding: 2rem 0; border-top: 1px solid var(--border);
+            text-align: center; font-size: 0.85rem; color: var(--text-muted);
+        }
+
+        /* ── Divider ── */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border), transparent);
+            margin: 0;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            section { padding: 4rem 0; }
+            .about-grid { grid-template-columns: 1fr; }
+            .about-w { font-size: 5rem; }
+            .two-col, .aca-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .nav-links.active {
+                display: flex; flex-direction: column; position: absolute;
+                top: 72px; left: 0; right: 0; background: rgba(17,17,17,0.98);
+                padding: 2rem; gap: 1.5rem; border-bottom: 1px solid var(--border);
+            }
+            .mobile-toggle { display: block; }
+            .btn-outline { margin-left: 0; margin-top: 1rem; }
+            .hero-buttons { display: flex; flex-direction: column; align-items: flex-start; }
+        }
+
+        /* ── Animations ── */
+        .fade-in {
+            opacity: 0; transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+    <div class="container">
+        <a href="#" class="logo">
+            <svg viewBox="0 0 40 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 5 Q10 25 15 15 Q20 5 20 5 Q20 5 20 5 Q20 25 25 15 Q30 5 35 5" stroke="url(#g)" stroke-width="4" fill="none" stroke-linecap="round"/>
+                <defs><linearGradient id="g" x1="0" y1="0" x2="40" y2="30"><stop offset="0%" stop-color="#E8C972"/><stop offset="100%" stop-color="#B8922F"/></linearGradient></defs>
+            </svg>
+            Worth Benefits
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">About</a></li>
+            <li><a href="#benefits">Benefits</a></li>
+            <li><a href="#aca">ACA Options</a></li>
+            <li><a href="#app">App</a></li>
+            <li><a href="#planning">Planning</a></li>
+            <li><a href="#contact" class="nav-cta">Get Started</a></li>
+        </ul>
+        <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')" aria-label="Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content fade-in">
+            <span class="w-icon">W</span>
+            <h1>WORTH<br>BENEFITS</h1>
+            <p class="hero-tagline">A smarter, more affordable benefits solution for employees &amp; their families.</p>
+            <p>Backed by over 40 years of employee benefits expertise, we deliver solutions that work &mdash; powered by advanced telehealth AI and the ON Health platform.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Schedule a Consultation</a>
+                <a href="#benefits" class="btn btn-outline">View Benefits</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About -->
+<section id="about" class="about">
+    <div class="container">
+        <h2 class="fade-in">About Worth Benefits</h2>
+        <div class="about-grid fade-in">
+            <div class="about-w">W</div>
+            <div class="about-text">
+                <p class="lead">At Worth Benefits, we believe that employee benefits should be accessible and easy to understand for all employees.</p>
+                <p>We strive to provide simple, yet comprehensive benefits solutions that give employees and their family peace of mind.</p>
+                <p>Backed by over 40 years of employee benefits expertise, WORTH BENEFITS delivers solutions that work. Our virtual and healthcare solution is founded upon a sophisticated Telehealth AI platform. This platform delivers a comprehensive range of healthcare services, including urgent and primary care, medical benefits, and specialized behavioral health support. A key feature is an interactive chat function available 24/7, with a particular focus on providing support for individuals experiencing anxiety and depression.</p>
+            </div>
+        </div>
+        <div class="about-partner fade-in">
+            <p class="tagline">A smarter, more affordable benefits solution for employees &amp; their families.</p>
+            <span class="on-health-badge">ON HEALTH</span>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ON Health -->
+<section id="onhealth" class="onhealth">
+    <div class="container">
+        <h2 class="fade-in">About ON Health</h2>
+        <div class="onhealth-intro fade-in">
+            <p>Usable, affordable healthcare benefits for employees are crucial for business owners looking to retain their employees longer. In partnership with ON Health, WORTH BENEFITS delivers a complete benefits solution backed by world-class underwriting and insurtech technology.</p>
+            <p>ON Health delivers affordable, everyday healthcare that keeps employees healthy, supported, and connected to care they can actually use.</p>
+        </div>
+
+        <h3 class="fade-in" style="color: var(--gold); font-size: 1.8rem;">$0 Deductibles, No Copays, &amp; 24/7 Access</h3>
+        <p class="fade-in">ON Health is founded upon a sophisticated telehealth AI platform. The plan features $0 deductibles, no copays, and 24/7 access to primary care, urgent care, mental health support, and prescription savings. Employees can save on physician and hospital services through the First Health Network, which includes more than 490,000 providers nationwide.</p>
+        <p class="fade-in">To support compliance, ON Health offers ACA-compliant options such as Minimum Essential Coverage (MEC) and a Minimum Value Plan (MVP) to help employers stay compliant while offering meaningful, affordable coverage.</p>
+
+        <div class="highlight-grid fade-in">
+            <div class="highlight-item">
+                <div class="highlight-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h4>Board-Certified Doctors</h4>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                </div>
+                <h4>Licensed Mental Health Professionals</h4>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 5.172C10 3.782 8.423 2.679 6.5 3c-2.823.47-4.113 6.006-4 7 .08.703 1.725 1.722 3.656 1 1.261-.472 1.96-1.45 2.344-2.5M14 5.172C14 3.782 15.577 2.679 17.5 3c2.823.47 4.113 6.006 4 7-.08.703-1.725 1.722-3.656 1-1.261-.472-1.96-1.45-2.344-2.5"/><path d="M8 14v.5M16 14v.5M11.25 16.25h1.5L12 17l-.75-.75z"/><path d="M4.42 11.247A13.152 13.152 0 0 0 4 14.556C4 18.728 7.582 21 12 21s8-2.272 8-6.444a13.152 13.152 0 0 0-.42-3.31"/></svg>
+                </div>
+                <h4>Licensed Veterinarians</h4>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                </div>
+                <h4>First Health Network</h4>
+            </div>
+        </div>
+
+        <h3 class="fade-in" style="color: var(--gold); margin-top: 3rem;">ON Health Can Help You:</h3>
+        <div class="highlight-grid fade-in" style="max-width: 700px;">
+            <div class="highlight-item" style="text-align:left; padding: 0.75rem 0;">
+                <h4>Attract Top Talent</h4>
+            </div>
+            <div class="highlight-item" style="text-align:left; padding: 0.75rem 0;">
+                <h4>Boost Employee Retention</h4>
+            </div>
+            <div class="highlight-item" style="text-align:left; padding: 0.75rem 0;">
+                <h4>Strengthen Workplace Culture</h4>
+            </div>
+            <div class="highlight-item" style="text-align:left; padding: 0.75rem 0;">
+                <h4>Increase Your ROI</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Benefits at a Glance -->
+<section id="benefits">
+    <div class="container">
+        <h2 class="fade-in">Benefit-at-a-Glance</h2>
+        <p class="fade-in" style="color: var(--text-muted); margin-bottom: 0.25rem;">Powered by <span class="on-health-badge">ON HEALTH</span></p>
+        <p class="fade-in" style="color: var(--gold-light); font-size: 1.2rem; font-family: 'Playfair Display', serif; max-width: 650px;">Affordable, high-quality care made simple with $0 deductibles, no copays, and 24/7 access anytime, anywhere.</p>
+        <p class="fade-in" style="color: var(--text-muted); max-width: 700px;">ON Health delivers real, everyday healthcare employees can rely on through an easy-to-use mobile app and the First Health network, which includes nearly one million providers nationwide.</p>
+
+        <div class="benefits-cards fade-in">
+            <div class="benefit-card">
+                <div class="card-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                </div>
+                <h3>In-Person Primary &amp; Urgent Care</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Digital ID Cards + ACA Preventive Services</p>
+                <div class="card-price">$0 Copay<small>(optional dental &amp; vision)</small></div>
+            </div>
+            <div class="benefit-card">
+                <div class="card-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94"/><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <h3>Virtual Primary &amp; Urgent Care</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Comprehensive Care + Easy Scheduling</p>
+                <div class="card-price">$0 Copay</div>
+            </div>
+            <div class="benefit-card">
+                <div class="card-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </div>
+                <h3>Virtual Mental Health</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Anxiety, Depression, Stress + And More</p>
+                <div class="card-price">$0/Visit</div>
+            </div>
+            <div class="benefit-card">
+                <div class="card-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66"/><path d="m18 15-2-2"/><path d="m15 18-2-2"/></svg>
+                </div>
+                <h3>Prescription Savings</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Discounted Rx + 55,000 Medications</p>
+                <div class="card-price">$0 Cost</div>
+            </div>
+            <div class="benefit-card">
+                <div class="card-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2a7 7 0 0 0-4 12.9V22l4-2 4 2v-7.1A7 7 0 0 0 12 2z"/></svg>
+                </div>
+                <h3>Virtual Veterinarian</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Preventative Guidance + Unlimited Chats</p>
+                <div class="card-price">$0/Visit</div>
+            </div>
+        </div>
+
+        <!-- Plan details two-column -->
+        <div class="two-col fade-in" style="margin-top: 4rem;">
+            <div>
+                <h3 style="font-size: 1.5rem;">Healthcare Benefits <span style="color: var(--text-muted); font-size: 0.8rem;">Powered by ON Health</span></h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+                    <div>
+                        <h4>Plan Benefits</h4>
+                        <ul class="feature-list">
+                            <li>Virtual primary and urgent care</li>
+                            <li>Virtual mental health</li>
+                            <li>Virtual veterinarian</li>
+                            <li>Discounted prescriptions</li>
+                            <li>In-person primary and urgent care</li>
+                            <li>Add-ons: Dental and Vision</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Plan Features</h4>
+                        <ul class="feature-list">
+                            <li>Affordable price</li>
+                            <li>No copays</li>
+                            <li>$0 deductibles</li>
+                            <li>$0 per mental health visit</li>
+                            <li>$0 per vet visit</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3 style="font-size: 1.5rem;">ACA Options <span style="color: var(--text-muted); font-size: 0.75rem; font-style: italic;">Provided by Vetted Underwriters</span></h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+                    <div>
+                        <h4>Comprehensive Coverage</h4>
+                        <ul class="feature-list">
+                            <li>Protects against large claims</li>
+                            <li>Meets ACA Minimum Value standards</li>
+                            <li>Preventive and wellness benefits</li>
+                            <li>Helps employees avoid tax penalties</li>
+                            <li>Keeps employers compliant</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Plan Benefits</h4>
+                        <ul class="feature-list">
+                            <li>Over 76 required screenings</li>
+                            <li>Doctors visits and hospitalization</li>
+                            <li>Mental health</li>
+                            <li>Rehab</li>
+                            <li>Prescription drugs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- App Section -->
+<section id="app" class="app-section">
+    <div class="container">
+        <h2 class="fade-in">An Easy-to-Use App</h2>
+        <h3 class="fade-in" style="color: var(--gold-light); font-size: 1.3rem; font-weight: 400; margin-bottom: 2rem;">Powered by AI &amp; Generations of Expertise</h3>
+        <p class="fade-in" style="max-width: 700px;">WORTH BENEFITS has rooted itself as a leading insurtech firm, by taking traditional employee benefits and elevating them with advanced technologies &mdash; including AI, mobile-driven platforms, and integrated digital tools.</p>
+
+        <div class="app-features-grid fade-in">
+            <div class="app-feature">
+                <span class="app-feature-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                </span>
+                <p>AI assistant with push-to-talk for quick answers and plan support</p>
+            </div>
+            <div class="app-feature">
+                <span class="app-feature-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </span>
+                <p>24/7 virtual urgent care with board-certified physicians</p>
+            </div>
+            <div class="app-feature">
+                <span class="app-feature-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </span>
+                <p>Real-time geolocation to find nearby pharmacies and providers</p>
+            </div>
+            <div class="app-feature">
+                <span class="app-feature-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </span>
+                <p>Virtual mental health care, from AI chat to licensed therapists</p>
+            </div>
+            <div class="app-feature">
+                <span class="app-feature-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                </span>
+                <p>Digital insurance cards for easy, on-the-go access</p>
+            </div>
+            <div class="app-feature">
+                <span class="app-feature-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </span>
+                <p>Instant prescription price search with $0 copay and discount options</p>
+            </div>
+            <div class="app-feature">
+                <span class="app-feature-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 5.172C10 3.782 8.423 2.679 6.5 3c-2.823.47-4.113 6.006-4 7 .08.703 1.725 1.722 3.656 1 1.261-.472 1.96-1.45 2.344-2.5M14 5.172C14 3.782 15.577 2.679 17.5 3c2.823.47 4.113 6.006 4 7-.08.703-1.725 1.722-3.656 1-1.261-.472-1.96-1.45-2.344-2.5"/><path d="M8 14v.5M16 14v.5M11.25 16.25h1.5L12 17l-.75-.75z"/><path d="M4.42 11.247A13.152 13.152 0 0 0 4 14.556C4 18.728 7.582 21 12 21s8-2.272 8-6.444a13.152 13.152 0 0 0-.42-3.31"/></svg>
+                </span>
+                <p>Virtual vet visits for pets and livestock, saving time, stress, and costly urgent care trips</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ACA Options -->
+<section id="aca" class="aca">
+    <div class="container">
+        <h2 class="fade-in">ACA Options</h2>
+        <div class="aca-grid fade-in">
+            <div class="aca-card">
+                <h3>Minimum Essential Coverage (MEC)</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Minimum Essential Coverage satisfies the basic requirements of the ACA by providing preventive and wellness services. It helps employers stay compliant while giving employees access to essential healthcare.</p>
+                <h4 style="margin-top: 1.5rem;">Sample of Services:</h4>
+                <ul class="feature-list">
+                    <li>Annual wellness exams</li>
+                    <li>Preventive screenings (blood pressure, cholesterol, diabetes)</li>
+                    <li>Immunizations and vaccines</li>
+                    <li>Women's health services (pap smears, mammograms)</li>
+                    <li>Tobacco cessation programs</li>
+                    <li>Routine lab work</li>
+                    <li>Behavioral health assessments</li>
+                    <li>Preventive pediatric care</li>
+                </ul>
+                <table class="aca-table" style="margin-top: 1.5rem;">
+                    <thead><tr><th>Benefits</th><th>In-Network</th><th>Out-of-Network</th></tr></thead>
+                    <tbody>
+                        <tr><td>Preventive Services for Adults</td><td>100%</td><td>40%</td></tr>
+                        <tr><td>Preventive Services for Pregnant Women</td><td>100%</td><td>40%</td></tr>
+                        <tr><td>Other Preventive Services for Women</td><td>100%</td><td>40%</td></tr>
+                        <tr><td>Preventive Services for Children</td><td>100%</td><td>40%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="aca-card">
+                <h3>Minimum Value Plan (MVP)</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">A Minimum Value Plan goes beyond basic preventive care to include comprehensive medical coverage, such as doctor visits, hospitalization, and prescription benefits. These plans meet ACA standards for minimum value.</p>
+                <h4 style="margin-top: 1.5rem;">Sample of Services:</h4>
+                <ul class="feature-list">
+                    <li>Primary care and specialist visits</li>
+                    <li>Urgent care and emergency services</li>
+                    <li>Hospitalization and surgery</li>
+                    <li>Diagnostic testing and imaging (x-ray, MRI, CT scan)</li>
+                    <li>Prescription drug coverage</li>
+                    <li>Preventive and wellness services</li>
+                    <li>Mental health and substance abuse treatment</li>
+                    <li>Maternity and newborn care</li>
+                </ul>
+                <p style="color: var(--text-muted); font-size: 0.85rem; font-style: italic; margin-top: 1.5rem;">Provided by Several Vetted Underwriters with Years of Experience</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Markets We Serve -->
+<section class="markets">
+    <div class="container">
+        <h2 class="fade-in">Markets We Serve</h2>
+        <p class="fade-in" style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">We partner with organizations across the country. Our goal is to make employee benefits simple, affordable, and compliant so you can focus on growth.</p>
+        <div class="market-tags fade-in">
+            <span class="market-tag">Staffing Agencies</span>
+            <span class="market-tag">PEOs</span>
+            <span class="market-tag">Payroll Providers</span>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Planning -->
+<section id="planning">
+    <div class="container">
+        <h2 class="fade-in">Planning for the Future</h2>
+        <p class="fade-in" style="color: var(--text-muted); max-width: 700px;">Evaluating and adjusting your benefits strategy each year can have a significant impact on your company's bottom line while improving employee morale and retention.</p>
+
+        <div class="planning-grid fade-in">
+            <div class="planning-card">
+                <h4>Understand Benefit Implementation Strategies</h4>
+                <p>Reduce or eliminate tax liability through a detailed evaluation of your current benefit options and contribution structures.</p>
+            </div>
+            <div class="planning-card">
+                <h4>Maximize Employee Participation</h4>
+                <p>Encouraging higher participation in your benefits program boosts employee satisfaction and helps extend tenure and improve overall efficiency.</p>
+            </div>
+            <div class="planning-card">
+                <h4>Calculate the Cost of Turnover</h4>
+                <p>High turnover can be expensive. Workers enrolled in benefits remain up to 47% longer, translating into measurable revenue gains.</p>
+            </div>
+            <div class="planning-card">
+                <h4>Adopt Industry-Specific Technology</h4>
+                <p>Use advanced tools and data-driven systems to streamline administration, improve efficiency, and enhance retention rates across your workforce.</p>
+            </div>
+            <div class="planning-card">
+                <h4>Cybersecurity</h4>
+                <p>Our mobile app was built using React Native and is hosted on Amazon web servers. We use end-to-end encryption and continuous monitoring to ensure your personal data is safe and private.</p>
+            </div>
+            <div class="planning-card">
+                <h4>HR Integration</h4>
+                <p>Employees can view medical information in real time, schedule appointments, find prescription discounts, and access their digital ID card through the mobile app.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Contact CTA -->
+<section id="contact" class="cta-section">
+    <div class="container">
+        <h2 class="fade-in">Ready to Get Started?</h2>
+        <p class="fade-in">Let's build a smarter benefits strategy for your team.</p>
+        <a href="mailto:glen@worthbenefits.com" class="btn btn-primary fade-in">Contact Us Today</a>
+        <div class="contact-info fade-in">
+            <div class="contact-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                glen@worthbenefits.com
+            </div>
+            <div class="contact-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                worthbenefits.com
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Worth Benefits. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    // Intersection Observer for fade-in animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Close mobile nav on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('navLinks').classList.remove('active');
+        });
+    });
+
+    // Navbar background on scroll
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('nav');
+        nav.style.background = window.scrollY > 50
+            ? 'rgba(17,17,17,0.98)'
+            : 'rgba(17,17,17,0.92)';
+    });
+</script>
+</body>
+</html>
