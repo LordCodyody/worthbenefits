@@ -379,6 +379,9 @@
         }
 
         /* ── Responsive ── */
+        @media (max-width: 1024px) {
+            .market-cards { grid-template-columns: repeat(2, 1fr) !important; }
+        }
         @media (max-width: 768px) {
             .container { padding: 0 1rem; }
             section { padding: 4rem 0; }
@@ -392,7 +395,7 @@
             .about-partner { flex-direction: column; align-items: flex-start; gap: 1rem; }
             .two-col, .aca-grid { grid-template-columns: 1fr; }
             .feature-sub-grid { grid-template-columns: 1fr; }
-            .market-cards { grid-template-columns: 1fr; }
+            .market-cards { grid-template-columns: 1fr !important; }
             .nav-links { display: none; }
             .nav-links.active {
                 display: flex; flex-direction: column; position: absolute;
@@ -439,11 +442,7 @@
 <nav>
     <div class="container">
         <a href="#" class="logo">
-            <svg aria-label="Worth Benefits logo" role="img" viewBox="0 0 40 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <title>Worth Benefits</title>
-                <path d="M5 5 Q10 25 15 15 Q20 5 20 5 Q20 5 20 5 Q20 25 25 15 Q30 5 35 5" stroke="url(#g)" stroke-width="4" fill="none" stroke-linecap="round"/>
-                <defs><linearGradient id="g" x1="0" y1="0" x2="40" y2="30"><stop offset="0%" stop-color="#E8C972"/><stop offset="100%" stop-color="#B8922F"/></linearGradient></defs>
-            </svg>
+            <img src="worth-benefits-logo.svg" alt="Worth Benefits" height="36" width="auto">
             Worth Benefits
         </a>
         <ul class="nav-links" id="navLinks">
@@ -533,6 +532,35 @@
         <div class="about-partner fade-in">
             <p class="tagline">A smarter, more affordable benefits solution for employees &amp; their families.</p>
             <span class="on-health-badge">ON HEALTH</span>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Markets We Serve -->
+<section id="markets" class="markets">
+    <div class="container">
+        <h2 class="fade-in">Markets We Serve</h2>
+        <p class="fade-in" style="color: var(--text-muted); max-width: 600px; margin: 0 auto 0;">We partner with organizations across the country. Our goal is to make employee benefits simple, affordable, and compliant so you can focus on growth.</p>
+        <div class="market-cards fade-in" style="grid-template-columns: repeat(4, 1fr);">
+            <div class="market-card">
+                <h3>Staffing Agencies</h3>
+                <p>Affordable, compliant benefits that help you attract and retain temporary and permanent workforce talent.</p>
+            </div>
+            <div class="market-card">
+                <h3>PEOs</h3>
+                <p>Scalable benefits solutions that integrate with your co-employment model and add value for your clients.</p>
+            </div>
+            <div class="market-card">
+                <h3>Payroll Providers</h3>
+                <p>Enhance your payroll services with turnkey benefits that keep your clients compliant and their employees covered.</p>
+            </div>
+            <div class="market-card" style="border-left-color: #9ef304;">
+                <h3 style="color: #9ef304;">Cannabis</h3>
+                <p>Providing healthcare solutions that are compliant in a heavily regulated market.</p>
+                <a href="BUD-E-BENEFITS.pdf" target="_blank" style="color: #9ef304; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.05em; display: inline-block; margin-top: 0.5rem;">BUD-E-BENEFITS</a>
+            </div>
         </div>
     </div>
 </section>
@@ -820,30 +848,6 @@
 
 <div class="section-divider"></div>
 
-<!-- Markets We Serve -->
-<section class="markets">
-    <div class="container">
-        <h2 class="fade-in">Markets We Serve</h2>
-        <p class="fade-in" style="color: var(--text-muted); max-width: 600px; margin: 0 auto 0;">We partner with organizations across the country. Our goal is to make employee benefits simple, affordable, and compliant so you can focus on growth.</p>
-        <div class="market-cards fade-in">
-            <div class="market-card">
-                <h3>Staffing Agencies</h3>
-                <p>Affordable, compliant benefits that help you attract and retain temporary and permanent workforce talent.</p>
-            </div>
-            <div class="market-card">
-                <h3>PEOs</h3>
-                <p>Scalable benefits solutions that integrate with your co-employment model and add value for your clients.</p>
-            </div>
-            <div class="market-card">
-                <h3>Payroll Providers</h3>
-                <p>Enhance your payroll services with turnkey benefits that keep your clients compliant and their employees covered.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="section-divider"></div>
-
 <!-- Planning -->
 <section id="planning" class="planning">
     <div class="container">
@@ -874,6 +878,16 @@
             <div class="planning-card">
                 <h4>HR Integration</h4>
                 <p>Employees can view medical information in real time, schedule appointments, find prescription discounts, and access their digital ID card through the mobile app.</p>
+            </div>
+        </div>
+
+        <!-- Partnerships & Memberships -->
+        <div class="fade-in" style="margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--border);">
+            <h3 style="font-size: 1.5rem; text-align: center; margin-bottom: 2rem;">Our Partnerships &amp; Memberships</h3>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 3rem; flex-wrap: wrap;">
+                <img src="Concierge-stacked.png" alt="Concierge" style="height: 80px; width: auto; filter: brightness(0.9);">
+                <img src="partner-logo.png" alt="Partner" style="height: 70px; width: auto; filter: brightness(0.9);">
+                <img src="MiCIAProudmember2.png" alt="MiCIA Proud Member" style="height: 80px; width: auto; filter: brightness(0.9);">
             </div>
         </div>
     </div>
@@ -908,10 +922,7 @@
         <div class="footer-grid">
             <div class="footer-brand">
                 <a href="#" class="logo">
-                    <svg aria-hidden="true" focusable="false" viewBox="0 0 40 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 5 Q10 25 15 15 Q20 5 20 5 Q20 5 20 5 Q20 25 25 15 Q30 5 35 5" stroke="url(#g2)" stroke-width="4" fill="none" stroke-linecap="round"/>
-                        <defs><linearGradient id="g2" x1="0" y1="0" x2="40" y2="30"><stop offset="0%" stop-color="#E8C972"/><stop offset="100%" stop-color="#B8922F"/></linearGradient></defs>
-                    </svg>
+                    <img src="worth-benefits-logo.svg" alt="Worth Benefits" height="36" width="auto">
                     Worth Benefits
                 </a>
                 <p>A smarter, more affordable benefits solution for employees &amp; their families.</p>
