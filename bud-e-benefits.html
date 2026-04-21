@@ -364,11 +364,13 @@
 
             /* ACA */
             .aca-card { padding: 1.25rem; }
-            .aca-card h3 { font-size: 1.25rem; }
-            .aca-table { font-size: 0.7rem; min-width: 0; width: 100%; }
-            .aca-table th, .aca-table td { padding: 0.4rem 0.15rem; word-break: break-word; }
-            .aca-table th:first-child, .aca-table td:first-child { max-width: 55%; }
-            .aca-table td:last-child, .aca-table th:last-child { text-align: center; white-space: nowrap; }
+            .aca-card h3 { font-size: 1.2rem; }
+            .aca-table { font-size: 0.8rem; min-width: 0; width: 100%; table-layout: fixed; }
+            .aca-table th:first-child, .aca-table td:first-child { width: 60%; }
+            .aca-table th, .aca-table td { padding: 0.5rem 0.25rem; text-align: center; }
+            .aca-table th:first-child, .aca-table td:first-child { text-align: left; }
+            .mobile-hide { display: none !important; }
+            .mobile-show { display: inline !important; }
 
             /* Planning */
             .planning-grid { grid-template-columns: 1fr; gap: 1rem; }
@@ -693,7 +695,7 @@
                     <li>Preventive pediatric care</li>
                 </ul>
                 <table class="aca-table" style="margin-top: 1.5rem;">
-                    <thead><tr><th>Benefits</th><th>In-Network</th><th>Out-of-Network</th></tr></thead>
+                    <thead><tr><th>Benefits</th><th><span class="mobile-hide">In-Network</span><span class="mobile-show" style="display:none;">In-Net</span></th><th><span class="mobile-hide">Out-of-Network</span><span class="mobile-show" style="display:none;">Out</span></th></tr></thead>
                     <tbody>
                         <tr><td>Preventive Services for Adults</td><td>100%</td><td>40%</td></tr>
                         <tr><td>Preventive Services for Pregnant Women or Women Who May Become Pregnant</td><td>100%</td><td>40%</td></tr>
