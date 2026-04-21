@@ -84,6 +84,8 @@
             border-radius: 3px;
         }
         :focus:not(:focus-visible) { outline: none; }
+        .btn:focus:not(:focus-visible) { background: var(--gold); color: #111; transform: none; box-shadow: none; }
+        .btn-outline:focus:not(:focus-visible) { background: transparent; color: var(--text-muted); border-color: rgba(212,168,67,0.5); }
 
         /* ── Typography ── */
         h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; color: var(--gold); font-weight: 700; }
