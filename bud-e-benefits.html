@@ -105,7 +105,7 @@
             border-radius: 6px; font-weight: 600; font-size: 0.85rem;
             transition: background 0.2s, transform 0.2s;
         }
-        .nav-cta:hover { background: var(--green-light); transform: translateY(-1px); }
+        @media (hover: hover) { .nav-cta:hover { background: var(--green-light); transform: translateY(-1px); } }
         .mobile-toggle {
             display: none; background: none; border: none; color: var(--green); cursor: pointer;
             width: 44px; height: 44px; align-items: center; justify-content: center;
@@ -133,12 +133,16 @@
             font-weight: 600; font-size: 1rem; transition: all 0.25s; cursor: pointer; border: none;
         }
         .btn-primary { background: var(--green); color: #111; letter-spacing: 0.04em; padding: 1rem 3rem; }
-        .btn-primary:hover { background: var(--green-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(158,243,4,0.2); }
+        @media (hover: hover) {
+            .btn-primary:hover { background: var(--green-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(158,243,4,0.2); }
+        }
         .btn-outline {
             background: transparent; color: var(--text-muted); border: 1.5px solid rgba(158,243,4,0.5);
             margin-left: 1rem;
         }
-        .btn-outline:hover { background: var(--green); color: #111; border-color: var(--green); }
+        @media (hover: hover) {
+            .btn-outline:hover { background: var(--green); color: #111; border-color: var(--green); }
+        }
 
         /* About Section */
         .about { background: var(--bg-alt); }
@@ -169,7 +173,7 @@
             padding: 1.5rem; background: var(--bg-card); border: 1px solid var(--border);
             border-radius: 10px; transition: border-color 0.2s;
         }
-        .help-item:hover { border-color: var(--green); }
+        @media (hover: hover) { .help-item:hover { border-color: var(--green); } }
         .help-item h4 { margin-bottom: 0.4rem; }
         .help-item p { font-size: 0.85rem; color: var(--text-muted); margin: 0; }
 
@@ -189,8 +193,10 @@
             height: 3px; background: linear-gradient(90deg, var(--green), var(--green-light));
             transform: scaleX(0); transition: transform 0.3s; transform-origin: left;
         }
-        .benefit-card:hover { border-color: var(--green); transform: translateY(-4px); }
-        .benefit-card:hover::before { transform: scaleX(1); }
+        @media (hover: hover) {
+            .benefit-card:hover { border-color: var(--green); transform: translateY(-4px); }
+            .benefit-card:hover::before { transform: scaleX(1); }
+        }
         .card-icon {
             width: 48px; height: 48px; border: 2px solid var(--green); border-radius: 10px;
             display: flex; align-items: center; justify-content: center;
@@ -221,7 +227,7 @@
             border-radius: 10px; background: var(--bg-card); border: 1px solid var(--border);
             transition: border-color 0.2s;
         }
-        .app-feature:hover { border-color: var(--green); }
+        @media (hover: hover) { .app-feature:hover { border-color: var(--green); } }
         .app-feature-icon { color: var(--green); font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
         .app-feature p { margin: 0; font-size: 0.95rem; }
 
