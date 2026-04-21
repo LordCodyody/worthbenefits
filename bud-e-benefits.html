@@ -363,10 +363,12 @@
             .app-features-grid { grid-template-columns: 1fr; gap: 1rem; }
 
             /* ACA */
-            .aca-card { overflow-x: auto; -webkit-overflow-scrolling: touch; padding: 1.5rem; }
+            .aca-card { padding: 1.25rem; }
             .aca-card h3 { font-size: 1.25rem; }
-            .aca-table { font-size: 0.75rem; min-width: 340px; }
-            .aca-table th, .aca-table td { padding: 0.5rem 0.25rem; }
+            .aca-table { font-size: 0.7rem; min-width: 0; width: 100%; }
+            .aca-table th, .aca-table td { padding: 0.4rem 0.15rem; word-break: break-word; }
+            .aca-table th:first-child, .aca-table td:first-child { max-width: 55%; }
+            .aca-table td:last-child, .aca-table th:last-child { text-align: center; white-space: nowrap; }
 
             /* Planning */
             .planning-grid { grid-template-columns: 1fr; gap: 1rem; }
