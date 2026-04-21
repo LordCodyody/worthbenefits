@@ -1064,7 +1064,8 @@
 
     // Remove stuck focus/hover on buttons after click
     document.querySelectorAll('.btn, .nav-cta').forEach(btn => {
-        btn.addEventListener('click', () => { btn.blur(); });
+        btn.addEventListener('mouseup', () => { setTimeout(() => btn.blur(), 100); });
+        btn.addEventListener('mouseleave', () => { btn.blur(); });
     });
 </script>
 </body>
